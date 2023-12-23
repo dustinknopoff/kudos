@@ -1,0 +1,6 @@
+build
+.wrangler
+node_modules
+.env*
+target
+.DS_Store

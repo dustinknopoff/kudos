@@ -1,0 +1,11 @@
+name = "kudos"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-03-22"
+
+kv_namespaces = [
+    { binding = "KUDOS", preview_id = "b84b12e1fd3b4e348e2778a573552f04", id = "83ba2aab0c784fb382560a94c9be6927" }
+]
+
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
