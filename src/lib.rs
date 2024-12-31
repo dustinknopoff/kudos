@@ -33,7 +33,7 @@ async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
             let kudos_namespace = ctx.kv("KUDOS")?;
             let count = get_kudos(&kudos_namespace, &key).await?;
             Response::from_html(format!(
-                "<a id='kudos' class='plausible-event-name=kudos' hx-post='https://kudos.knopoff.dev/kudo' hx-swap='outerHTML'>👋 {count}</a>"
+                "<a id='kudos' data-umami-event='kudos' hx-post='https://kudos.knopoff.dev/kudo' hx-swap='outerHTML'>👋 {count}</a>"
             ))
             .map(add_cors)
         })
