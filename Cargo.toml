@@ -11,7 +11,7 @@ wasm-opt = false
 crate-type = ["cdylib"]
 
 [dependencies]
-worker = "0.0.18"
+worker = "0.5.0"
 cfg-if = "1.0.0"
 http = "1.1.0"
 time = { version = "0.3.36", features = ["wasm-bindgen"] }
