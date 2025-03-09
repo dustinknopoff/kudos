@@ -1,7 +1,7 @@
 use tracing_subscriber::fmt::format::Pretty;
 use tracing_subscriber::fmt::time::UtcTime;
 use tracing_subscriber::prelude::*;
-use tracing_web::{performance_layer, MakeConsoleWriter};
+use tracing_web::{MakeConsoleWriter, performance_layer};
 
 use worker::{kv::KvStore, *};
 
@@ -59,7 +59,10 @@ async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
             ))
             .map(add_cors)
         })
-        .options("/*catchall", |_, _| {
+        .options("/", |_, _| {
+            Response::ok("ok").map(add_cors)
+        })
+        .options("/kudo", |_, _| {
             Response::ok("ok").map(add_cors)
         })
         .run(req, env)
